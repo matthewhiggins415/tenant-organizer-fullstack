@@ -6,9 +6,8 @@ const PropertySchema = new Schema({
         type: String,
     }, 
     address: {
-        type: String, 
-        required: true, 
-        unique: true
+        type: String,
+        required: true 
     }, 
     numOfUnits: {
         type: Number, 
@@ -18,7 +17,7 @@ const PropertySchema = new Schema({
         type: Number, 
         required: true
     }, 
-    DayofMonthRentDue: {
+    DayRentDue: {
         type: Number, 
         required: true
     }, 
@@ -31,4 +30,4 @@ const PropertySchema = new Schema({
     timestamps: true
 })
 
-module.exports = PropertySchema
+module.exports = mongoose.model('Property', PropertySchema)

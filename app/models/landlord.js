@@ -1,7 +1,5 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-const TenantSchema = require('./tenant')
-const PropertySchema = require('./property')
 
 const LandlordSchema = new Schema({
   email: {
@@ -13,8 +11,10 @@ const LandlordSchema = new Schema({
     type: String,
     required: true
   },
-  tenants: [TenantSchema],
-  properties: [PropertySchema],
+  properties: [{
+      type: Schema.Types.ObjectId,
+      ref: 'Property'
+    }],
   token: String
 }, {
   timestamps: true,

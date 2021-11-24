@@ -139,4 +139,12 @@ router.delete('/sign-out', requireToken, (req, res, next) => {
     .catch(next)
 })
 
+router.get('/user/:id', requireToken, (req, res, next) => {
+  let id = req.params.id
+  Landlord.findById(id)
+    .then(user => {
+      res.json({ user })
+    })
+})
+
 module.exports = router
