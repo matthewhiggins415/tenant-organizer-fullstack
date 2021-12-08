@@ -11,10 +11,11 @@ const LandlordSchema = new Schema({
     type: String,
     required: true
   },
-  properties: [{
-      type: Schema.Types.ObjectId,
-      ref: 'Property'
-    }],
+  // properties: [{
+  //     type: Schema.Types.ObjectId,
+  //     ref: 'Property',
+      
+  //   }],
   token: String
 }, {
   timestamps: true,

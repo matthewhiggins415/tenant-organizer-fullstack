@@ -14,7 +14,7 @@ const TenantSchema = new Schema ({
         type: String, 
         required: true
     }, 
-    address: {
+    tenantAddress: {
         type: String, 
         required: true
     }, 
@@ -41,4 +41,4 @@ const TenantSchema = new Schema ({
     timestamps: true
 })
 
-module.exports = TenantSchema
+module.exports = mongoose.model('Tenant', TenantSchema)

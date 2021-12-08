@@ -79,7 +79,7 @@ router.delete('/property/:id', requireToken, (req, res, next) => {
         .then(property => {
             property.deleteOne()
         })
-        .then(() => res.sendStatus(204))
+        .then(() => res.send(204))
         .catch(next)
 })
 
