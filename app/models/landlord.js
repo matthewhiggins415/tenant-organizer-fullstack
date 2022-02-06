@@ -11,11 +11,18 @@ const LandlordSchema = new Schema({
     type: String,
     required: true
   },
-  // properties: [{
-  //     type: Schema.Types.ObjectId,
-  //     ref: 'Property',
-      
-  //   }],
+  stripeAccountCreated: {
+    type: Boolean,
+    default: false
+  }, 
+  stripeAccountActive: {
+    type: Boolean, 
+    default: false
+  }, 
+  stripeId: {
+    type: String, 
+    unique: true
+  },
   token: String
 }, {
   timestamps: true,

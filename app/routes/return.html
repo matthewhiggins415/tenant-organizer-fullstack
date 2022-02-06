@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .prayBtn {
+            padding: 20px;
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>You have left the onboarding flow</h1>
+    <p>This file exists on the backend</p>
+    <button class="prayBtn" id="prayBtn">
+        back to home
+    </button>
+</body>
+<script>
+    document.getElementById("prayBtn").addEventListener("click", () => {
+        console.log('it is be clicked')
+        // console.log(store)
+        // window.location.href = 'http://localhost:7165/'
+
+        const redirect = (url) => {
+          let link = document.createElement('a');
+          link.href = url;
+          document.body.appendChild(link);
+          link.click();
+        }
+
+        //find user and send to front end 
+
+        redirect('http://localhost:7165/return.html')
+    })
+</script>
+</html>

@@ -2,7 +2,11 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const TenantSchema = new Schema ({
-    name: {
+    firstName: {
+        type: String, 
+        required: true
+    }, 
+    lastName: {
         type: String, 
         required: true
     }, 
@@ -14,10 +18,6 @@ const TenantSchema = new Schema ({
         type: String, 
         required: true
     }, 
-    tenantAddress: {
-        type: String, 
-        required: true
-    }, 
     paymentInfo: {
         type: String 
     }, 
@@ -25,11 +25,16 @@ const TenantSchema = new Schema ({
         type: String
     }, 
     rentDate: {
-        type: Date, 
+        type: Number, 
         required: true
     }, 
     rentAmount: {
         type: Number, 
+        required: true
+    }, 
+    property: {
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Property', 
         required: true
     }, 
     owner: {

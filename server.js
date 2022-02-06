@@ -7,6 +7,8 @@ const cors = require('cors')
 const exampleRoutes = require('./app/routes/example_routes')
 const landlordRoutes = require('./app/routes/landlord_routes.js')
 const propertyRoutes = require('./app/routes/property_routes')
+const tenantRoutes = require('./app/routes/tenant_routes')
+const stripeRoutes = require('./app/routes/stripe_routes')
 
 // require middleware
 const errorHandler = require('./lib/error_handler')
@@ -23,6 +25,7 @@ const auth = require('./lib/auth')
 // used for cors and local port declaration
 const serverDevPort = 4741
 const clientDevPort = 7165
+const redesignDevPort = 3000
 
 // establish database connection
 // use new version of URL parser
@@ -38,7 +41,14 @@ const app = express()
 
 // set CORS headers on response from this API using the `cors` NPM package
 // `CLIENT_ORIGIN` is an environment variable that will be set on Heroku
-app.use(cors({ origin: process.env.CLIENT_ORIGIN || `http://localhost:${clientDevPort}` }))
+// app.use(cors({ origin: process.env.CLIENT_ORIGIN || `http://localhost:${clientDevPort}` || `http://localhost:${redesignDevPort}` }))
+
+app.use(cors({ origin: `http://localhost:${redesignDevPort}` }))
+
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   next();
+// });
 
 // define port for API to run on
 const port = process.env.PORT || serverDevPort
@@ -60,6 +70,8 @@ app.use(requestLogger)
 app.use(exampleRoutes)
 app.use(landlordRoutes)
 app.use(propertyRoutes)
+app.use(tenantRoutes)
+app.use(stripeRoutes)
 
 // register error handling middleware
 // note that this comes after the route middlewares, because it needs to be

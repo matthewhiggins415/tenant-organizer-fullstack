@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .return-body-container{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .return-div-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            text-align: center;
+            width: 25%;
+            height: 40%;
+            padding: 20px;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            border-radius: 10px;
+        }
+
+        .return-div-container h1 {
+            color: rgb(255, 163, 163); 
+        }
+
+        .return-home-btn {
+            border: 1px solid rgb(252, 205, 205);
+            padding: 13px;
+            border-radius: 10px;
+            background-color:rgb(252, 205, 205);
+            text-decoration: none;
+            outline: none;
+            transition: 200ms ease-in-out;
+            cursor: pointer;
+            color: white;
+        }
+
+        .return-home-btn:hover {
+            background-color: rgb(255, 163, 163); 
+            color: white;
+            border: 1px solid rgb(255, 163, 163); 
+        }
+
+    </style>
+    <title>Document</title>
+</head>
+<body class="return-body-container">
+    <div class="return-div-container">
+        <h1 class="return-title">You have successfully onboarded!</h1>
+        <button class="return-home-btn" id="return-to-login-btn">return to login</button>
+        <p>For security we have logged you out. Please sign back in to continue.</p>
+    </div>
+    <script>
+      let pathname = window.location.pathname
+      let pathsArr =  pathname.split("/")
+      let stripeID = pathsArr[3]
+      let landlordID = pathsArr[4]
+      let url = 'http://localhost:4741'
+
+      document.getElementById("return-to-login-btn").addEventListener("click", () => {
+          
+      })
+
+    </script>
+</body>
+</html>
