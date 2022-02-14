@@ -40,9 +40,17 @@ router.get('/tenant/:id', requireToken, (req, res, next) => {
         .catch(next)
 })
 
-//get all tenants for admin 
+//read all tenant belonging to user
+//protected
+//method: GET
+//path: /tenants
 router.get('/tenants', requireToken, (req, res, next) => {
-    res.json('get all tenants for admin')
+    let landlordID = req.user.id
+    Tenant.find({ 'owner': landlordID })
+        .populate('owner')
+        .then(tenants => {
+            res.json({ tenants })
+        })
 })
 
 //update a single tenant 
