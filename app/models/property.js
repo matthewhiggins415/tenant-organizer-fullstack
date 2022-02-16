@@ -9,6 +9,18 @@ const PropertySchema = new Schema({
         type: String,
         required: true 
     }, 
+    city: {
+        type: String, 
+        required: true
+    }, 
+    state: {
+        type: String, 
+        required: true
+    }, 
+    zip: {
+        type: String, 
+        required: true
+    },
     numOfUnits: {
         type: Number, 
         required: true
@@ -17,7 +29,7 @@ const PropertySchema = new Schema({
         type: Number, 
         required: true
     }, 
-    DayRentDue: {
+    dayRentDue: {
         type: Number, 
         required: true
     }, 
