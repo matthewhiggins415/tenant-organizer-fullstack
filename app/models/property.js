@@ -33,6 +33,9 @@ const PropertySchema = new Schema({
         type: Number, 
         required: true
     }, 
+    description: {
+        type: String
+    },
     owner: {
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'Landlord', 
