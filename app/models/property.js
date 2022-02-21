@@ -36,6 +36,20 @@ const PropertySchema = new Schema({
     description: {
         type: String
     },
+    tasks: [{
+        taskTitle: {
+            type: String, 
+            required: false
+        }, 
+        taskDescription: {
+            type: String, 
+            required: false
+        }, 
+        complete: {
+          type: Boolean, 
+          required: false
+        }
+    }], 
     owner: {
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'Landlord', 

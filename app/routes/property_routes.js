@@ -83,4 +83,23 @@ router.delete('/property/:id', requireToken, (req, res, next) => {
         .catch(next)
 })
 
+
+//Add a task to a property
+//Protected 
+//method: PATCH
+//path: /propertytask/:id
+router.patch('/propertytask/:id', requireToken, (req, res, next) => {
+    let id = req.params.id
+    let task = req.body.task
+    Property.findById(id)
+      .then(property => {
+        property.tasks.push(task)
+        return property.save()
+      })
+      .then(property => {
+          res.json({ property })
+      })
+      .catch(next)
+})
+
 module.exports = router 
