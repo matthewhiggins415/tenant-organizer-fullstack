@@ -102,4 +102,30 @@ router.patch('/propertytask/:id', requireToken, (req, res, next) => {
       .catch(next)
 })
 
+
+//Remove a task to a property
+//Protected 
+//method: PATCH
+//path: /propertytask/:id
+router.delete('/propertytask/:id/:taskId', requireToken, (req, res, next) => {
+    let id = req.params.id
+    let taskId = req.params.taskId
+    Property.findById(id)
+      .then(property => {
+        console.log(taskId)
+        console.log(property.tasks)
+        let updatedArr = property.tasks.filter(task => task._id != taskId )
+        property.tasks = updatedArr 
+        return property.save()
+      })
+      .then(property => {
+          res.json({ property })
+      })
+      .catch(next)
+})
+
+//mark task complete
+
+//mark task incomplete 
+
 module.exports = router 
