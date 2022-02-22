@@ -131,6 +131,21 @@ router.patch('/change-password', requireToken, (req, res, next) => {
     .catch(next)
 })
 
+//update a single tenant 
+router.patch('/user/:id', requireToken, (req, res, next) => {
+  let id = req.params.id
+  let data = req.body.user
+  Landlord.findById(id) 
+      .then(landlord => {
+          landlord.set(data)
+          return landlord.save()
+      })
+      .then(landlord => {
+          res.json({ landlord })
+      })
+      .catch(next)
+})
+
 router.delete('/sign-out', requireToken, (req, res, next) => {
   // create a new random token for the user, invalidating the current one
   req.user.token = null
