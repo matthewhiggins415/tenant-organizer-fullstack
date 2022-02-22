@@ -131,10 +131,10 @@ router.patch('/change-password', requireToken, (req, res, next) => {
     .catch(next)
 })
 
-//update a single tenant 
+//update a single landlord 
 router.patch('/user/:id', requireToken, (req, res, next) => {
   let id = req.params.id
-  let data = req.body.user
+  let data = req.body.landlord
   Landlord.findById(id) 
       .then(landlord => {
           landlord.set(data)

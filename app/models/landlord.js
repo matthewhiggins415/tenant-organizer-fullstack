@@ -3,13 +3,16 @@ const Schema = mongoose.Schema
 
 const LandlordSchema = new Schema({
   firstName: { 
-    type: String
+    type: String, 
+    default: 'first name'
   }, 
   lastName: {
-    type: String
+    type: String, 
+    default: 'last name'
   },
   phone: {
-    type: String
+    type: String, 
+    default: 'phone number'
   },
   email: {
     type: String,
