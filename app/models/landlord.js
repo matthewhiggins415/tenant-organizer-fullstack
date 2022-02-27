@@ -33,7 +33,8 @@ const LandlordSchema = new Schema({
   }, 
   stripeId: {
     type: String, 
-    unique: true
+    unique: true, 
+    default: null
   },
   token: String
 }, {
