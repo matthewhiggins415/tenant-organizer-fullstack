@@ -8,7 +8,6 @@ const exampleRoutes = require('./app/routes/example_routes')
 const landlordRoutes = require('./app/routes/landlord_routes.js')
 const propertyRoutes = require('./app/routes/property_routes')
 const tenantRoutes = require('./app/routes/tenant_routes')
-const stripeRoutes = require('./app/routes/stripe_routes')
 
 // require middleware
 const errorHandler = require('./lib/error_handler')
@@ -71,7 +70,6 @@ app.use(exampleRoutes)
 app.use(landlordRoutes)
 app.use(propertyRoutes)
 app.use(tenantRoutes)
-app.use(stripeRoutes)
 
 // register error handling middleware
 // note that this comes after the route middlewares, because it needs to be
