@@ -23,19 +23,6 @@ const LandlordSchema = new Schema({
     type: String,
     required: true
   },
-  stripeAccountCreated: {
-    type: Boolean,
-    default: false
-  }, 
-  stripeAccountActive: {
-    type: Boolean, 
-    default: false
-  }, 
-  stripeId: {
-    type: String, 
-    unique: true, 
-    default: null
-  },
   token: String
 }, {
   timestamps: true,
