@@ -11,15 +11,15 @@ const PropertySchema = new Schema({
     }, 
     city: {
         type: String, 
-        required: true
+        required: false
     }, 
     state: {
         type: String, 
-        required: true
+        required: false
     }, 
     zip: {
         type: String, 
-        required: true
+        required: false
     },
     numOfUnits: {
         type: Number, 
@@ -31,7 +31,7 @@ const PropertySchema = new Schema({
     }, 
     dayRentDue: {
         type: Number, 
-        required: true
+        required: false
     }, 
     description: {
         type: String

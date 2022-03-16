@@ -24,7 +24,6 @@ const auth = require('./lib/auth')
 // used for cors and local port declaration
 const serverDevPort = 4741
 const clientDevPort = 7165
-const redesignDevPort = 3000
 
 // establish database connection
 // use new version of URL parser
@@ -42,7 +41,12 @@ const app = express()
 // `CLIENT_ORIGIN` is an environment variable that will be set on Heroku
 // app.use(cors({ origin: process.env.CLIENT_ORIGIN || `http://localhost:${clientDevPort}` || `http://localhost:${redesignDevPort}` }))
 
-app.use(cors())
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   next();
+// });
+
+app.use(cors({ origin: process.env.CLIENT_ORIGIN || `http://localhost:7165` }))
 
 // app.use((req, res, next) => {
 //   res.header('Access-Control-Allow-Origin', '*');
