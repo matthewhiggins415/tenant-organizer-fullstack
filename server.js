@@ -46,7 +46,7 @@ const app = express()
 //   next();
 // });
 
-app.use(cors({ origin: process.env.CLIENT_ORIGIN || `http://localhost:7165` }))
+app.use(cors({ origin: 'https://matthewhiggins415.github.io' || `http://localhost:7165` }))
 
 // app.use((req, res, next) => {
 //   res.header('Access-Control-Allow-Origin', '*');
