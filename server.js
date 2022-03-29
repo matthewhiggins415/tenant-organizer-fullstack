@@ -30,7 +30,6 @@ const clientDevPort = 3000
 // use createIndex instead of deprecated ensureIndex
 mongoose.connect(db, {
   useNewUrlParser: true,
-  useCreateIndex: true,
   useUnifiedTopology: true
 })
 
@@ -39,7 +38,7 @@ const app = express()
 
 // set CORS headers on response from this API using the `cors` NPM package
 // `CLIENT_ORIGIN` is an environment variable that will be set on Heroku
-app.use(cors({ origin: process.env.CLIENT_ORIGIN || `http://localhost:${clientDevPort}` }))
+app.use(cors({ origin: 'https://matthewhiggins415.github.io' || `http://localhost:${clientDevPort}` }))
 
 // define port for API to run on
 const port = process.env.PORT || serverDevPort
