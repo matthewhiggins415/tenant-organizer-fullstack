@@ -1,4 +1,5 @@
-'use strict'
+const mongoose = require('mongoose')
+require("dotenv").config()
 
 // creating a base name for the mongodb
 const mongooseBaseName = 'propertyManager'

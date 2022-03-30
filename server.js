@@ -2,6 +2,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
+require("dotenv").config()
 
 // require route files
 const exampleRoutes = require('./app/routes/example_routes')
@@ -38,13 +39,14 @@ const app = express()
 
 // set CORS headers on response from this API using the `cors` NPM package
 // `CLIENT_ORIGIN` is an environment variable that will be set on Heroku
-app.use(cors({ origin: 'https://matthewhiggins415.github.io' || `http://localhost:${clientDevPort}` }))
+app.use(cors({ origin: process.env.CLIENT_ORIGIN || `http://localhost:${clientDevPort}` }))
 
-// define port for API to run on
-const port = process.env.PORT || serverDevPort
 
 // register passport authentication middleware
 app.use(auth)
+ 
+// define port for API to run on
+const port = process.env.PORT || serverDevPort
 
 // add `express.json` middleware which will parse JSON requests into
 // JS objects before they reach the route files.
